@@ -1,0 +1,9 @@
+module Genetic {
+
+	typedef sequence<long> RandomSeq;
+
+	interface RandomProvider {
+		RandomSeq getRandomLong(in long num);
+	};
+
+};

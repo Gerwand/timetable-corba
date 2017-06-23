@@ -1,0 +1,30 @@
+module Genetic
+{
+        typedef sequence<long> LongSeq;
+	typedef sequence<LongSeq> PeriodSeq;
+        typedef sequence<PeriodSeq> IndividualSeq;
+
+        struct Tuple
+        {
+                long tupleID;
+                long classID;
+                long teacherID;
+                long roomID;
+        };
+        typedef sequence<Tuple> TupleSeq;
+
+        interface GeneticTimeTable
+        {
+                void updateParameters(in long maxFitness,
+                                      in long periods,
+                                      in long naturalSelection);
+                IndividualSeq getRandomPopulation(in long number,
+						  out float meanFitness);
+                IndividualSeq mate(in long number,
+                          	  out float meanFitness,
+                          	  out long perfectPos);
+
+                attribute TupleSeq tuples;
+                attribute IndividualSeq population;
+        };
+};
